@@ -1,0 +1,54 @@
+﻿@model IEnumerable<sistema_cft.Models.Asignatura>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center><h1>Lista de Asignaturas</h1></center>
+<center>
+<p>
+    <a  class="btn btn-outline-primary"asp-action="Create">Inscribe tu modulo</a>
+</p>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaActualizacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaActualizacion)
+            </td>
+            <td>
+                <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a class="btn btn-outline-warning" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
